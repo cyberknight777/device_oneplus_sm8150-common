@@ -18,6 +18,9 @@ persist.vendor.cne.feature=1
 # CoreSight STM
 persist.debug.coresight.config=stm-events
 
+# Display
+qemu.sf.lcd_density=560
+
 # GPS
 persist.vendor.overlay.izat.optin=rro
 
