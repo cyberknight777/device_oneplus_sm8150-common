@@ -20,6 +20,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.os.VibrationEffect;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
@@ -60,18 +61,29 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         int scanCode = event.getScanCode();
+        int currentRingerMode = mAudioManager.getRingerModeInternal();
 
         switch (scanCode) {
             case MODE_NORMAL:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
-                doHapticFeedback(MODE_NORMAL_EFFECT);
+                if (currentRingerMode != AudioManager.RINGER_MODE_NORMAL) {
+                    mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
+                } else {
+                    return event;
+                }
                 break;
             case MODE_VIBRATION:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
-                doHapticFeedback(MODE_VIBRATION_EFFECT);
+                if (currentRingerMode != AudioManager.RINGER_MODE_VIBRATE) {
+                    mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
+                } else {
+                    return event;
+                }
                 break;
             case MODE_SILENCE:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
+                if (currentRingerMode != AudioManager.RINGER_MODE_SILENT) {
+                    mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
+                } else {
+                    return event;
+                }
                 break;
             default:
                 return event;
@@ -82,7 +94,7 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private void doHapticFeedback(VibrationEffect effect) {
         if (mVibrator != null && mVibrator.hasVibrator()) {
-            mVibrator.vibrate(effect);
+            mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_POP));
         }
     }
 
