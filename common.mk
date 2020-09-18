@@ -354,8 +354,9 @@ PRODUCT_BOOT_JARS += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
     vendor.qti.hardware.perf@2.2.vendor
+
+$(call inherit-product, vendor/qcom/opensource/power/power-vendor-product.mk)
 
 # Protobuf
 PRODUCT_PACKAGES += \
