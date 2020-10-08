@@ -83,6 +83,12 @@ void load_dalvikvm_properties() {
   property_override("dalvik.vm.heapminfree", "8m");
 }
 
+void property_override_multi(char const system_prop[], char const vendor_prop[],char const bootimage_prop[], char const value[]) {
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+    property_override(bootimage_prop, value);
+}
+
 void vendor_load_properties() {
   int prj_version = stoi(android::base::GetProperty("ro.boot.prj_version", ""));
   int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
@@ -195,7 +201,7 @@ void vendor_load_properties() {
 
     property_override("vendor.boot.prj_version", std::to_string(prj_version).c_str());
     property_override_dual("vendor.rf.version", "vendor.boot.rf_version", std::to_string(rf_version).c_str());
-
+    property_override_multi("ro.build.fingerprint", "ro.vendor.build.fingerprint","ro.bootimage.build.fingerprint", "google/coral/coral:11/RQ3A.210705.001/7380771:user/release-keys");
   // dalvikvm props
   load_dalvikvm_properties();
 }
