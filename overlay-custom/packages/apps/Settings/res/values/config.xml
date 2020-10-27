@@ -24,4 +24,6 @@
          4 = FOD (front)
          -->
     <integer name="config_fingerprintSensorLocation">4</integer>
+
+    <bool name="config_show_color_mode">false</bool>
 </resources>
