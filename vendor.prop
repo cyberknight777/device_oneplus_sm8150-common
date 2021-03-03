@@ -69,6 +69,10 @@ ro.opcamera.support=true
 log.tag.CHIUSECASE=ERROR
 persist.vendor.camera.logInfoMask=false
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SM8150
+
 # Crypto
 ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts
