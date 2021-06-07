@@ -71,6 +71,9 @@ ro.vendor.qti.sys.fw.bg_apps_limit=60
 ro.control_privapp_permissions=enforce
 persist.camera.privapp.list=com.oneplus.factorymode,com.oneplus.camera
 
+# QC framework value-adds
+ro.vendor.qti.va_aosp.support=1
+
 # Radio
 DEVICE_PROVISIONED=1
 persist.vendor.data.mode=concurrent
