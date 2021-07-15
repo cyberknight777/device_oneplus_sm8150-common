@@ -1,2 +1,0 @@
-# Allow system_suspend to read sysfs
-allow system_suspend sysfs:dir r_file_perms;
