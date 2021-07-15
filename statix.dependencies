@@ -2,12 +2,14 @@
   {
     "repository": "android_kernel_oneplus_sm8150",
     "target_path": "kernel/oneplus/sm8150",
-    "branch": "11-new"
+    "branch": "11-new",
+    "remote": "statix"
   },
   {
     "repository"  : "android_vendor_oneplus",
     "target_path" : "vendor/oneplus",
-    "branch": "11-new"
+    "branch": "11-new",
+    "remote": "statix"
   },
   {
     "repository": "android_device_oneplus_common",
