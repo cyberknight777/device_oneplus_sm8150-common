@@ -19,10 +19,5 @@
     "repository": "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
     "branch": "lineage-18.1"
-  },
-  {
-    "repository": "mvaisakh/gcc-arm64",
-    "target_path": "prebuilts/gcc/linux-x86/aarch64/arm64-gcc",
-    "branch": "gcc-master"
   }
 ]
