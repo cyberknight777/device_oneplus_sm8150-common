@@ -203,7 +203,7 @@ void vendor_load_properties() {
     property_override_dual("vendor.rf.version", "vendor.boot.rf_version", std::to_string(rf_version).c_str());
     std::string serialno = android::base::GetProperty("ro.serialno", "");
     property_override("ro.vendor.serialno", serialno.c_str());
-    property_override_multi("ro.build.fingerprint", "ro.vendor.build.fingerprint","ro.bootimage.build.fingerprint", "google/coral/coral:11/RQ3A.210705.001/7380771:user/release-keys");
+    property_override_multi("ro.build.fingerprint", "ro.vendor.build.fingerprint","ro.bootimage.build.fingerprint", "google/coral/coral:11/RQ3A.210805.001.A1/7474174:user/release-keys");
 
   // dalvikvm props
   load_dalvikvm_properties();
