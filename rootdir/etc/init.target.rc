@@ -130,7 +130,7 @@ on boot
 
     # ifdef VENDOR_EDIT
     # chris.gao@SYSTEM, 2019/3/2, [GCE-9966] Optimize surfaceflinger
-    write /dev/cpuset/display/cpus 4-7
+    write /dev/cpuset/display/cpus 0-3
     # endif VENDOR_EDIT
 
 # Add a cpuset for the camera daemon
