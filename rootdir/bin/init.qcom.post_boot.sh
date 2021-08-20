@@ -4808,9 +4808,6 @@ case "$target" in
         echo 0 > /sys/class/scsi_host/host0/../../../clkscale_enable
         #endif VENDOR_EDIT
 
-        echo 0-3 > /dev/cpuset/background/cpus
-        echo 0-3 > /dev/cpuset/system-background/cpus
-
         # Enable oom_reaper
 	if [ -f /sys/module/lowmemorykiller/parameters/oom_reaper ]; then
 		echo 1 > /sys/module/lowmemorykiller/parameters/oom_reaper
