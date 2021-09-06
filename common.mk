@@ -200,7 +200,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msmnile \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
-    libqdMetaData \
     libqdMetaData.system \
     libvulkan \
     memtrack.msmnile \
@@ -438,14 +437,6 @@ PRODUCT_COPY_FILES += \
 # WiFi
 PRODUCT_PACKAGES += \
     WifiResCommon
-
-# WiFi Display
-PRODUCT_PACKAGES += \
-    libnl \
-    libwfdaac_vendor
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 # Dex to make OTA go faster
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
