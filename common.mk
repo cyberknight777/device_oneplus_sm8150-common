@@ -85,10 +85,6 @@ PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
 
-# Device Settings
-PRODUCT_PACKAGES += \
-    DeviceSettings
-
 # Atrace
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
@@ -234,7 +230,8 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    OnePlusDoze
+    OnePlusDoze \
+    OnePlusDozeOverlay
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -246,8 +243,8 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.oneplus_msmnile \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile \
+    android.hardware.biometrics.fingerprint@2.1-service.oneplus \
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus \
     vendor.oneplus.fingerprint.extension@1.0.vendor \
     vendor.oneplus.hardware.display@1.0.vendor
 
@@ -296,6 +293,10 @@ PRODUCT_COPY_FILES += \
 # IRQ
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+
+# KeyHandler
+PRODUCT_PACKAGES += \
+    KeyHandler
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -353,10 +354,10 @@ PRODUCT_PACKAGES += \
 
 # OnePlus
 PRODUCT_PACKAGES += \
-    oneplus-fwk.oneplus_msmnile
+    oneplus-fwk.oneplus
 
 PRODUCT_BOOT_JARS += \
-    oneplus-fwk.oneplus_msmnile
+    oneplus-fwk.oneplus
 
 # Power
 PRODUCT_PACKAGES += \
@@ -390,7 +391,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.oneplus_msmnile
+    vendor.qti.hardware.vibrator.service.oneplus
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
@@ -433,10 +434,6 @@ PRODUCT_BOOT_JARS += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml
-
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus_msmnile
 
 # tri-state key
 PRODUCT_PACKAGES += \
