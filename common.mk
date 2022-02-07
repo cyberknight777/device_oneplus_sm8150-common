@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
+    android.hardware.audio@4.0.vendor:64 \
     android.hardware.audio@6.0-impl:32 \
     android.hardware.audio.effect@6.0-impl:32 \
     android.hardware.soundtrigger@2.1-impl:32 \
@@ -416,6 +417,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     als_correction_service.oneplus_msmnile \
     android.hardware.sensors@2.0-service.oneplus_msmnile \
+    android.frameworks.sensorservice@1.0.vendor \
     libsensorndkbridge
 
 # Servicetracker
