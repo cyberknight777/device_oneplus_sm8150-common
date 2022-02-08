@@ -1,0 +1,2 @@
+# Allow vendor ims to read telephony config prop
+get_prop(vendor_ims, telephony_config_prop)
