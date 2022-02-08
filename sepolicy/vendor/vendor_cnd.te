@@ -1,0 +1,2 @@
+# allow cnd to read telephony config prop
+get_prop(vendor_cnd, telephony_config_prop)
