@@ -1,2 +1,5 @@
 # Allow hal_bluetooth_default to read files in vendor_data_file
 r_dir_file(hal_bluetooth_default, vendor_data_file)
+
+# Allow bluetooth hal to read telephony config prop
+get_prop(hal_bluetooth_default, telephony_config_prop)
