@@ -15,16 +15,13 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings.ModeSwitch;
+package com.aosp.device.DeviceSettings.ModeSwitch;
 
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
+import com.aosp.device.DeviceSettings.Utils;
 
-import com.yaap.device.DeviceSettings.Utils;
+public class HBMModeSwitch {
 
-public class DCModeSwitch implements OnPreferenceChangeListener {
-
-    private static final String FILE = "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en";
+    private static final String FILE = "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm";
 
     public static String getFile() {
         if (Utils.fileWritable(FILE)) {
@@ -39,12 +36,5 @@ public class DCModeSwitch implements OnPreferenceChangeListener {
 
     public static boolean isCurrentlyEnabled() {
         return Utils.getFileValueAsBoolean(getFile(), false);
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        Boolean enabled = (Boolean) newValue;
-        Utils.writeValue(getFile(), enabled ? "1" : "0");
-        return true;
     }
 }

@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings;
+package com.aosp.device.DeviceSettings;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -24,7 +24,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 
-import com.yaap.device.DeviceSettings.ModeSwitch.HBMModeSwitch;
+import com.aosp.device.DeviceSettings.ModeSwitch.HBMModeSwitch;
 
 public class HBMModeService extends Service {
 

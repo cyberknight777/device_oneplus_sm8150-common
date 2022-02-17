@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.yaap.device.DeviceSettings;
+package com.aosp.device.DeviceSettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +32,7 @@ import android.media.AudioManager;
 public class Constants {
 
     // Broadcast action for settings update
-    static final String UPDATE_PREFS_ACTION = "com.yaap.device.DeviceSettings.UPDATE_SETTINGS";
+    static final String UPDATE_PREFS_ACTION = "com.aosp.device.DeviceSettings.UPDATE_SETTINGS";
 
     // Preference keys
     public static final String NOTIF_SLIDER_TOP_KEY = "keycode_top_position";

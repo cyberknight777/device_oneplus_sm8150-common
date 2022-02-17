@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Yet Another AOSP Project
+* Copyright (C) Yet Another AOSP Project
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,16 +15,16 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings.ModeSwitch;
+package com.aosp.device.DeviceSettings.ModeSwitch;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
-import com.yaap.device.DeviceSettings.Utils;
+import com.aosp.device.DeviceSettings.Utils;
 
-public class DCIModeSwitch implements OnPreferenceChangeListener {
+public class DCModeSwitch implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_customer_p3_mode";
+    private static final String FILE = "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en";
 
     public static String getFile() {
         if (Utils.fileWritable(FILE)) {

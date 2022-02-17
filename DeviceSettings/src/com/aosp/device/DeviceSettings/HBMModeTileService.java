@@ -15,13 +15,13 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings;
+package com.aosp.device.DeviceSettings;
 
 import android.content.Intent;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
-import com.yaap.device.DeviceSettings.ModeSwitch.HBMModeSwitch;
+import com.aosp.device.DeviceSettings.ModeSwitch.HBMModeSwitch;
 
 public class HBMModeTileService extends TileService {
 
@@ -62,7 +62,7 @@ public class HBMModeTileService extends TileService {
         Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "0" : "5");
         if (!enabled) {
             mHbmIntent = new Intent(this,
-                    com.yaap.device.DeviceSettings.HBMModeService.class);
+                    com.aosp.device.DeviceSettings.HBMModeService.class);
             this.startService(mHbmIntent);
         }
         updateState();

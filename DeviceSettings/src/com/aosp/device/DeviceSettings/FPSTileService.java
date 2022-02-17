@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yaap.device.DeviceSettings;
+package com.aosp.device.DeviceSettings;
 
 import android.app.ActivityManager;
 import android.content.Intent;

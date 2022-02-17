@@ -15,19 +15,21 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings;
+package com.aosp.device.DeviceSettings;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class PanelSettingsActivity extends Activity {
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+import com.android.settingslib.collapsingtoolbar.R;
+
+public class DeviceSettingsActivity extends CollapsingToolbarBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         getFragmentManager().beginTransaction()
-                .add(android.R.id.content, new PanelSettings())
+                .add(R.id.content_frame, new DeviceSettings())
                 .commit();
     }
 }
