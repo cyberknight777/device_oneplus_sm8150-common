@@ -30,8 +30,8 @@
 
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-        <item>com.yaap.device.DeviceSettings.KeyHandler</item>
-        <item>com.yaap.device.DeviceSettings.TouchKeyHandler</item>
+        <item>com.aosp.device.DeviceSettings.KeyHandler</item>
+        <item>com.aosp.device.DeviceSettings.TouchKeyHandler</item>
     </string-array>
 
     <!-- Hardware keys present on the device, stored as a bit field.
