@@ -280,7 +280,7 @@ service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0
     group system
     disabled
 
-# Include logger service
+# Include logger services
 service logger /system/bin/logcat -b all -D -f /cache/boot_log.txt
     class main
     user root
@@ -288,11 +288,21 @@ service logger /system/bin/logcat -b all -D -f /cache/boot_log.txt
     disabled
     oneshot
 
+service dmesg_logger /system/bin/dmesg > /cache/boot_dm.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
 on post-fs-data
-    # Clear existing log and start the service
+    # Clear existing logs and start the services
     rm /cache/boot_log.txt
+    rm /cache/boot_dm.txt
     start logger
+    start dmesg_logger
 
 on property:sys.boot_completed=1
-    # Stop the logger service
+    # Stop the logger services
     stop logger
+    stop dmesg_logger
