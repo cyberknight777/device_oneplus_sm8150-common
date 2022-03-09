@@ -54,6 +54,7 @@ on early-fs
 on fs
     start hwservicemanager
     mount_all /vendor/etc/fstab.qcom --early
+    swapon_all /vendor/etc/fstab.swap
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
