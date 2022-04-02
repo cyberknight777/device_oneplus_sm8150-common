@@ -17,10 +17,7 @@
 package com.aosp.device.DeviceSettings;
 
 import android.app.ActivityManager;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
@@ -28,19 +25,6 @@ import android.service.quicksettings.TileService;
 public class FPSTileService extends TileService {
 
     private boolean mIsShowing = false;
-    private boolean mInternalStart = false;
-
-    private final BroadcastReceiver mServiceStateReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (mInternalStart) {
-                mInternalStart = false;
-                return;
-            }
-            mIsShowing = intent.getBooleanExtra(FPSInfoService.EXTRA_FPS_STATE, false);
-            updateTile();
-        }
-    };
 
     public FPSTileService() { }
 
@@ -49,19 +33,10 @@ public class FPSTileService extends TileService {
         super.onStartListening();
         mIsShowing = isRunning();
         updateTile();
-        IntentFilter filter = new IntentFilter(FPSInfoService.ACTION_FPS_SERVICE_CHANGED);
-        registerReceiver(mServiceStateReceiver, filter);
-    }
-
-    @Override
-    public void onStopListening() {
-        super.onStopListening();
-        unregisterReceiver(mServiceStateReceiver);
     }
 
     @Override
     public void onClick() {
-        mInternalStart = true;
         Intent fpsinfo = new Intent(this, FPSInfoService.class);
         mIsShowing = isRunning();
         if (!mIsShowing) this.startService(fpsinfo);

@@ -33,7 +33,7 @@ public class HBMModeService extends Service {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(Intent.ACTION_SCREEN_OFF)) {
-                HBMModeSwitch.setEnabled(false, context);
+                Utils.writeValue(HBMModeSwitch.getFile(), "0");
                 stopSelf();
             }
         }

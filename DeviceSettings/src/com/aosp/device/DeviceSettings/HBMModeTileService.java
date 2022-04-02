@@ -17,10 +17,7 @@
 */
 package com.aosp.device.DeviceSettings;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
@@ -29,19 +26,6 @@ import com.aosp.device.DeviceSettings.ModeSwitch.HBMModeSwitch;
 public class HBMModeTileService extends TileService {
 
     private Intent mHbmIntent;
-
-    private boolean mInternalStart = false;
-
-    private final BroadcastReceiver mServiceStateReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (mInternalStart) {
-                mInternalStart = false;
-                return;
-            }
-            updateState();
-        }
-    };
 
     @Override
     public void onDestroy() {
@@ -63,22 +47,24 @@ public class HBMModeTileService extends TileService {
     public void onStartListening() {
         super.onStartListening();
         updateState();
-        IntentFilter filter = new IntentFilter(HBMModeSwitch.ACTION_HBM_SERVICE_CHANGED);
-        registerReceiver(mServiceStateReceiver, filter);
     }
 
     @Override
     public void onStopListening() {
         super.onStopListening();
-        unregisterReceiver(mServiceStateReceiver);
     }
 
     @Override
     public void onClick() {
         super.onClick();
-        mInternalStart = true;
         boolean enabled = HBMModeSwitch.isCurrentlyEnabled();
-        HBMModeSwitch.setEnabled(!enabled, this);
+        // NOTE: reverse logic, enabled reflects the state before press
+        Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "0" : "5");
+        if (!enabled) {
+            mHbmIntent = new Intent(this,
+                    com.aosp.device.DeviceSettings.HBMModeService.class);
+            this.startService(mHbmIntent);
+        }
         updateState();
     }
 
