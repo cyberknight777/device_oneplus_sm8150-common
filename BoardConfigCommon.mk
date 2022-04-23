@@ -46,6 +46,7 @@ TARGET_KERNEL_NEW_GCC_COMPILE := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
 TARGET_KERNEL_CROSS_COMPILE_PREFIX_ARM32 := arm-eabi-
 KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
+TARGET_KERNEL_ADDITIONAL_FLAGS := "LD_LIBRARY_PATH=$(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin/ LD=aarch64-elf-ld.lld"
 TARGET_KERNEL_CONFIG := dragonheart_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
