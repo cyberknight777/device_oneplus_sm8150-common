@@ -1,0 +1,1 @@
+allow vendor_netmgrd telephony_config_prop:file { read };
