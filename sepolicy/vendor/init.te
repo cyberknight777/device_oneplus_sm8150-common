@@ -10,4 +10,4 @@ allow init { op1_file op2_file }:dir mounton;
 # Allow init to contextmount op1_file
 allow op1_file self:filesystem associate;
 
-allow init sysfs:file { setattr };
+allow init sysfs_kprofiles:file { setattr };
