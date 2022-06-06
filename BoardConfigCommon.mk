@@ -137,6 +137,12 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
+# Prebuilt
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(VENDOR_PATH)/prebuilt/Image
+BOARD_PREBUILT_DTBOIMAGE := $(VENDOR_PATH)/prebuilt/dtbo.img
+BOARD_PREBUILT_DTBIMAGE_DIR := $(VENDOR_PATH)/prebuilt/dtb
+
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
