@@ -47,7 +47,6 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_NATURAL_SWITCH = "natural";
     public static final String KEY_VIVID_SWITCH = "vivid";
 
-    private static final String KEY_REFRESH_RATE = "refresh_rate";
     private static final String KEY_ALWAYS_CAMERA_DIALOG = "always_on_camera_dialog";
     public static final String KEY_FPS_INFO = "fps_info";
 
@@ -59,7 +58,6 @@ public class DeviceSettings extends PreferenceFragment
             Build.DEVICE.equals("OnePlus7TProNR");
 
     private TwoStatePreference mHBMModeSwitch;
-    private TwoStatePreference mRefreshRate;
     private SwitchPreference mFpsInfo;
     private SwitchPreference mAlwaysCameraSwitch;
     private SwitchPreference mMuteMediaSwitch;
@@ -91,14 +89,6 @@ public class DeviceSettings extends PreferenceFragment
         mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
         mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled());
         mHBMModeSwitch.setOnPreferenceChangeListener(this);
-
-        if (getResources().getBoolean(R.bool.config_deviceHasHighRefreshRate)) {
-            mRefreshRate = findPreference(KEY_REFRESH_RATE);
-            mRefreshRate.setChecked(RefreshRateSwitch.isCurrentlyEnabled(getContext()));
-            mRefreshRate.setOnPreferenceChangeListener(this);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_REFRESH_RATE));
-        }
 
         mFpsInfo = findPreference(KEY_FPS_INFO);
         mFpsInfo.setChecked(isFPSOverlayRunning());
@@ -136,9 +126,6 @@ public class DeviceSettings extends PreferenceFragment
             Settings.System.putInt(resolver,
                     KEY_SETTINGS_PREFIX + KEY_ALWAYS_CAMERA_DIALOG,
                     enabled ? 1 : 0);
-        } else if (preference == mRefreshRate) {
-            Boolean enabled = (Boolean) newValue;
-            RefreshRateSwitch.setPeakRefresh(getContext(), enabled);
         } else if (preference == mHBMModeSwitch) {
             Boolean enabled = (Boolean) newValue;
             Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "5" : "0");

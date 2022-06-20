@@ -31,12 +31,6 @@
         android:summary="@string/fps_info_summary"
         android:persistent="true" />
 
-    <SwitchPreference
-        android:key="refresh_rate"
-        android:summary="@string/refresh_rate_summary"
-        android:title="@string/refresh_rate_title"
-        android:persistent="false" />
-
     <Preference
         android:key="panel_category"
         android:title="@string/panel_category_title"

@@ -83,8 +83,6 @@
     <!-- Refresh rate -->
     <string name="refresh_title">Screen refresh</string>
     <string name="tile_refresh_rate">Screen refresh rate</string>
-    <string name="refresh_rate_summary">Whether to force 60Hz or allow 90Hz peak refresh rate</string>
-    <string name="refresh_rate_title">Force 60Hz refresh rate</string>
     <string name="fps_info_title">FPS Overlay</string>
     <string name="fps_info_summary">Show overlay with with current frames per second</string>
 
