@@ -38,19 +38,9 @@ public class Startup extends BroadcastReceiver {
         TouchscreenGestureSettings.MainSettingsFragment.restoreTouchscreenGestureStates(context);
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        restore(SRGBModeSwitch.getFile(),
-                sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false));
         restore(HBMModeSwitch.getFile(),
                 sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false));
         restore(DCModeSwitch.getFile(),
                 sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false));
-        restore(DCIModeSwitch.getFile(),
-                sharedPrefs.getBoolean(DeviceSettings.KEY_DCI_SWITCH, false));
-        restore(WideColorModeSwitch.getFile(),
-                sharedPrefs.getBoolean(DeviceSettings.KEY_WIDECOLOR_SWITCH, false));
-        restore(NaturalModeSwitch.getFile(),
-                sharedPrefs.getBoolean(DeviceSettings.KEY_NATURAL_SWITCH, false));
-        restore(VividModeSwitch.getFile(),
-                sharedPrefs.getBoolean(DeviceSettings.KEY_VIVID_SWITCH, false));
     }
 }
