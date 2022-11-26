@@ -14,7 +14,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           android:sharedUserId="android.uid.system"
-          package="com.aosp.device.DeviceSettings"
+          package="com.yaap.device.DeviceSettings"
           android:versionCode="1"
           android:versionName="1.0" >
 
@@ -24,7 +24,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <protected-broadcast android:name="com.aosp.device.DeviceSettings.UPDATE_SETTINGS" />
+    <protected-broadcast android:name="com.yaap.device.DeviceSettings.UPDATE_SETTINGS" />
     <protected-broadcast android:name="android.intent.action.SCREEN_CAMERA_GESTURE" />
 
     <uses-sdk
@@ -65,7 +65,7 @@
             android:theme="@style/Theme.SubSettingsBase">
         </activity>
 
-        <receiver android:name="com.aosp.device.DeviceSettings.Startup" >
+        <receiver android:name="com.yaap.device.DeviceSettings.Startup" >
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -73,7 +73,7 @@
 
         <!-- Quick Settings Tiles -->
         <service
-            android:name="com.aosp.device.DeviceSettings.DCModeTileService"
+            android:name="com.yaap.device.DeviceSettings.DCModeTileService"
             android:icon="@drawable/ic_dimming_off"
             android:label="@string/tile_dc_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -83,7 +83,7 @@
             </intent-filter>
         </service>
         <service
-            android:name="com.aosp.device.DeviceSettings.HBMModeTileService"
+            android:name="com.yaap.device.DeviceSettings.HBMModeTileService"
             android:icon="@drawable/ic_hbm_tile"
             android:label="@string/tile_hbm_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -93,7 +93,7 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.aosp.device.DeviceSettings.FPSInfoService"
+        <service android:name="com.yaap.device.DeviceSettings.FPSInfoService"
                 android:exported="false">
         </service>
 
@@ -108,7 +108,7 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.aosp.device.DeviceSettings.HBMModeService"
+        <service android:name="com.yaap.device.DeviceSettings.HBMModeService"
             android:exported="false" />
 
     </application>

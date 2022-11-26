@@ -37,8 +37,8 @@
         android:summary="@string/touchscreen_gesture_settings_summary"
         android:persistent="false" >
         <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.aosp.device.DeviceSettings"
-                android:targetClass="com.aosp.device.DeviceSettings.TouchscreenGestureSettings" />
+                android:targetPackage="com.yaap.device.DeviceSettings"
+                android:targetClass="com.yaap.device.DeviceSettings.TouchscreenGestureSettings" />
     </Preference>
 
     <PreferenceCategory
